@@ -1,9 +1,0 @@
-/home/vaishnav/Desktop/My_Projects/Embedded_Rust/microcontrollers/microBit/led_blink/blinky_bare_metal/target/thumbv7em-none-eabihf/debug/deps/libcritical_section-ac38028a01dddf56.rmeta: /home/vaishnav/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/critical-section-1.2.0/src/lib.rs /home/vaishnav/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/critical-section-1.2.0/src/mutex.rs /home/vaishnav/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/critical-section-1.2.0/src/../README.md
-
-/home/vaishnav/Desktop/My_Projects/Embedded_Rust/microcontrollers/microBit/led_blink/blinky_bare_metal/target/thumbv7em-none-eabihf/debug/deps/libcritical_section-ac38028a01dddf56.rlib: /home/vaishnav/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/critical-section-1.2.0/src/lib.rs /home/vaishnav/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/critical-section-1.2.0/src/mutex.rs /home/vaishnav/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/critical-section-1.2.0/src/../README.md
-
-/home/vaishnav/Desktop/My_Projects/Embedded_Rust/microcontrollers/microBit/led_blink/blinky_bare_metal/target/thumbv7em-none-eabihf/debug/deps/critical_section-ac38028a01dddf56.d: /home/vaishnav/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/critical-section-1.2.0/src/lib.rs /home/vaishnav/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/critical-section-1.2.0/src/mutex.rs /home/vaishnav/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/critical-section-1.2.0/src/../README.md
-
-/home/vaishnav/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/critical-section-1.2.0/src/lib.rs:
-/home/vaishnav/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/critical-section-1.2.0/src/mutex.rs:
-/home/vaishnav/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/critical-section-1.2.0/src/../README.md:
