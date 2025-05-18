@@ -13,3 +13,11 @@ author: Vaishnav Sabari Girish
 3. USB Cable
 
 <!--end_slide-->
+
+## Setting up environment - 1
+
+### Adding the architecture
+
+```bash
+rustup target add thumbv7em-none-eabihf
+```
