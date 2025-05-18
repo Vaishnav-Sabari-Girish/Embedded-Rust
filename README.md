@@ -4,5 +4,5 @@ My progress is tracked through slides.
 
 Find them [here](./slides/) and you can present them using presenterm
 
-1. [Microbit V2](./microcontrollers/microBit/)
+1. [Microbit V2](./microcontrollers/microBit/microBit.md)
 
