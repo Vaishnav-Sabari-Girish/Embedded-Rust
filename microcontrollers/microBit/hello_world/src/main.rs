@@ -4,14 +4,15 @@
 use cortex_m::asm::nop;
 use cortex_m_rt::entry;
 use panic_halt as _;
+use rtt_target::{rprintln, rtt_init_print};
 
 #[entry]
 fn main() -> ! {
-    let mut x: usize = 0;
+    rtt_init_print!();
+    rprintln!("Hello World");
     loop {
-        x += 1;
-
-        for _ in 0..x {
+        rprintln!("Echo......");
+        for _ in 0..100_000 {
             nop();
         }
     }
