@@ -1,0 +1,1 @@
+/home/vaishnav/Desktop/My_Projects/Embedded_Rust/microcontrollers/microBit/hello_world/target/thumbv7em-none-eabihf/debug/hello_world: /home/vaishnav/Desktop/My_Projects/Embedded_Rust/microcontrollers/microBit/hello_world/src/main.rs
