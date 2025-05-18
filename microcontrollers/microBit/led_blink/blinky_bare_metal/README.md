@@ -32,4 +32,4 @@ To toggle the LED, we toggle the PIN21 bit in the OUT register to switch ON and 
 
 # Output
 
-![Video](./videos/bare_metal_blink.mp4)
+![Video](./videos/bare_metal_blink.gif)
