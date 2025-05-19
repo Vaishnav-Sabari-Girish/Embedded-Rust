@@ -4,9 +4,9 @@ sub_title: With MicroBit V2
 author: Vaishnav Sabari Girish
 ---
 
-# Getting started
+## Getting started
 
-## Hardware Requirements
+### Hardware Requirements
 
 1. MicroBit V2 Board
 2. Computer with Rust installed (preferably Linux-based OS)
