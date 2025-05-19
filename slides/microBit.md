@@ -4,9 +4,9 @@ sub_title: With MicroBit V2
 author: Vaishnav Sabari Girish
 ---
 
-# Getting started 
+# Getting started
 
-## Hardware Requirements 
+## Hardware Requirements
 
 1. MicroBit V2 Board
 2. Computer with Rust installed (preferably Linux-based OS)
@@ -22,7 +22,7 @@ author: Vaishnav Sabari Girish
 rustup target add thumbv7em-none-eabihf
 ```
 
-Check it with 
+Check it with
 
 ```bash
 rustup show
@@ -40,6 +40,6 @@ curl --proto '=https' --tlsv1.2 -LsSf https://github.com/probe-rs/probe-rs/relea
 
 ## Output of `rustup show`
 
-```bash +exec 
+```bash +exec
 rustup show
 ```
