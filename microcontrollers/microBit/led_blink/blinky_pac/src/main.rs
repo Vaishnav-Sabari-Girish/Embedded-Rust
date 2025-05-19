@@ -3,19 +3,19 @@
 
 use cortex_m::asm::nop;
 use cortex_m_rt::entry;
-use nrf52833_pac::Peripherals;
+use nrf52833_pac::{Peripherals, p0::pin_cnf::W as PinCnfW, p0::out::W as OutW};
 use panic_halt as _;
 
 #[entry]
 fn main() -> ! {
     let p = Peripherals::take().unwrap();
-    p.P0.pin_cnf[21].write(|w| w.dir().output());
-    p.P0.pin_cnf[28].write(|w| w.dir().output());
+    p.P0.pin_cnf[21].write(|w: &mut PinCnfW| w.dir().output());
+    p.P0.pin_cnf[28].write(|w: &mut PinCnfW| w.dir().output());
 
     let mut is_on: bool = false;
 
     loop {
-        p.P0.out.write(|w| w.pin21().bit(is_on));
+        p.P0.out.write(|w: &mut OutW| w.pin21().bit(is_on));
 
         for _ in 0..100_000 {
             nop();
