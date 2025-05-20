@@ -53,7 +53,24 @@ curl --proto '=https' --tlsv1.2 -LsSf https://github.com/probe-rs/probe-rs/relea
     1. Rust-analyzer
     2. Even Better TOML
     3. Error Lens
-    4. Crates
+    4. Crates-io
+
+<!--column_layout: [2, 1]-->
+
+<!--column: 0-->
+
+![image:width:25%](./images/rust_analyzer.png)
+
+![image:width:25%](./images/crates.png)
+
+<!--column: 1-->
+
+![image:width:50%](./images/error_lens.png)
+
+![image:width:50%](./images/even_better_toml.png)
+
+
+<!--reset_layout-->
 
 <!--end_slide-->
 
@@ -108,15 +125,6 @@ thumbv7em-none-eabihf
 
 <!--end_slide-->
 
-
-## Adding the LLVM architecture for Microbit-V2 
-
-```bash +exec
-rustup target add thumbv7em-none-eabihf
-```
-
-<!--end_slide-->
-
 ## How to find out the architecture and llvm required - 1
 
 ![image:width:50%](./images/step1.png)
@@ -153,4 +161,17 @@ We will choose the 2nd one with the hardfloat. i.e
 thumbv7em-none-eabihf
 ```
 
+Then type 
+
+```bash  +exec
+rustup target add thumbv7em-none-eabihf
+```
+
+<!--end_slide-->
+
+## Final Check 
+
+```bash  +exec
+rustup show
+```
 
