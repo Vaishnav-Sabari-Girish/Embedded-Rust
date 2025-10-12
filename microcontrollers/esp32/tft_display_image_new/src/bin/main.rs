@@ -27,7 +27,15 @@ use esp_hal::spi::master::Config as SpiConfig;
 use esp_hal::spi::master::Spi;
 use esp_hal::spi::Mode as SpiMode;
 use esp_hal::time::Rate;
-use mipidsi::{Builder, models::ILI9341Rgb565, options::{Orientation, Rotation}, interface::SpiInterface};
+use mipidsi::{
+    Builder, 
+    models::ILI9342CRgb565, 
+    options::{
+        Orientation, 
+        Rotation
+    }, 
+    interface::SpiInterface,
+};
 
 // GPIO stuff
 use esp_hal::gpio::{Level, Output, OutputConfig};
@@ -60,7 +68,7 @@ fn main() -> ! {
     let spi_dev = ExclusiveDevice::new_no_delay(spi, cs).unwrap();
     let interface = SpiInterface::new(spi_dev, dc, &mut buffer);
 
-    let mut display = Builder::new(ILI9341Rgb565, interface)
+    let mut display = Builder::new(ILI9342CRgb565, interface)
         .reset_pin(reset)
         .init(&mut Delay::new())
         .unwrap();
@@ -70,7 +78,7 @@ fn main() -> ! {
 
     let bmp_data = include_bytes!("../../image.bmp");
     let bmp = Bmp::from_slice(bmp_data).unwrap();
-
+    
     let image = Image::new(&bmp, Point::new(10, 0));
     image.draw(&mut display).unwrap();
 
