@@ -7,3 +7,4 @@
 5. [Sensor Interfacing](./sensor_reading/sensor_reading.md)
 6. [PWM](./led_pwm/src/bin/main.rs)
 7. [TFT Text Display](./tft_display_hello_world/tft_text.md)
+8. [TFT Image Display](./tft_display_image/tft_image.md)
