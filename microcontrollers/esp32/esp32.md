@@ -9,3 +9,4 @@
 7. [TFT Text Display](./tft_display_hello_world/tft_text.md)
 8. [TFT Image Display](./tft_display_image/tft_image.md)
 9. [TFT Display Text (Type 2)](./tft_display_text_new/tft_text_new.md)
+10. [TFT Display Image (Type 2)](./tft_display_image_new/tft_image_new.md)
