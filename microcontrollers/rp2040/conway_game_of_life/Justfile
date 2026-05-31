@@ -1,0 +1,37 @@
+# Grab the name of the current directory to use as the binary name
+BIN_NAME := `basename "$PWD"`
+
+build:
+    @cargo build --release
+
+sz:
+    @./build-size.sh .
+
+run: sz
+    @echo "📦 Converting ELF to UF2..."
+    @elf2uf2-rs convert target/thumbv6m-none-eabi/release/{{BIN_NAME}} flash.uf2
+    @echo "🔌 Mounting RP2040 synchronously (requires sudo)..."
+    @sudo mount -t vfat -o sync /dev/sda1 /mnt/rp2
+    @echo "⚡ Flashing memory..."
+    @sudo cp flash.uf2 /mnt/rp2/
+    @echo "✅ Done! Program Flashed successfully"
+    @sudo umount /mnt/rp2/ || true
+
+nuke:
+    @echo "🧹 Nuking RP2040 flash memory..."
+    @if mountpoint -q /mnt/rp2; then \
+        echo "✓ Drive already mounted at /mnt/rp2"; \
+    else \
+        echo "🔌 Mounting RP2040..."; \
+        sudo mount -t vfat -o sync /dev/sda1 /mnt/rp2; \
+    fi
+    @echo "💣 Copying flash_nuke.uf2..."
+    @sudo cp flash_nuke.uf2 /mnt/rp2/
+    @echo "⏳ Waiting for flash erase to complete..."
+    @sleep 2
+    @sudo umount /mnt/rp2/ || true
+    @echo "✅ Flash memory nuked! Board will reboot."
+
+clean:
+    @cargo clean
+    @rm -f flash.uf2
