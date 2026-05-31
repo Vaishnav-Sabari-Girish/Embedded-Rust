@@ -9,3 +9,4 @@ List of Embedded rust programs on the nrf52840-DK microcontroller (Mainly using 
 3. [Die Temperature Sensor](./die_temperature_sensor/src/main.rs)
 4. [LED PWM](./pwm_led/src/main.rs)
 5. [OLED](./oled_display/src/main.rs)
+6. [OLED (`ratatui`)](./oled_ratatui/src/main.rs)
