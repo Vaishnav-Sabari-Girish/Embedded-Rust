@@ -1,5 +1,5 @@
 [package]
-name = "nrf52840_dk_blinky"
+name = "nrf_button_press"
 version = "0.1.0"
 edition = "2024"
 
@@ -19,7 +19,7 @@ lto = true
 opt-level = 'z' # Optimize for size
 
 [[bin]]
-name = "nrf52840_dk_blinky"
+name = "nrf_button_press"
 test = false
 bench = false
 doctest = false

@@ -1,5 +1,5 @@
 [package]
-name = "nrf52840_dk_blinky"
+name = "die_temperature_sensor"
 version = "0.1.0"
 edition = "2024"
 
@@ -19,7 +19,8 @@ lto = true
 opt-level = 'z' # Optimize for size
 
 [[bin]]
-name = "nrf52840_dk_blinky"
+name = "die_temperature_sensor"
 test = false
 bench = false
 doctest = false
+

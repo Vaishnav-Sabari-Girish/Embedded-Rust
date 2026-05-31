@@ -211,6 +211,20 @@ dependencies = [
 ]
 
 [[package]]
+name = "die_temperature_sensor"
+version = "0.1.0"
+dependencies = [
+ "cortex-m",
+ "cortex-m-rt",
+ "defmt",
+ "defmt-rtt",
+ "embassy-executor",
+ "embassy-nrf",
+ "embassy-time",
+ "panic-probe",
+]
+
+[[package]]
 name = "document-features"
 version = "0.2.12"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -625,20 +639,6 @@ checksum = "bddd547fab92b0553ff37032034fd04ce8b8b60d3f9a83f89ea815dfd0400336"
 dependencies = [
  "cortex-m",
  "cortex-m-rt",
-]
-
-[[package]]
-name = "nrf52840_dk_blinky"
-version = "0.1.0"
-dependencies = [
- "cortex-m",
- "cortex-m-rt",
- "defmt",
- "defmt-rtt",
- "embassy-executor",
- "embassy-nrf",
- "embassy-time",
- "panic-probe",
 ]
 
 [[package]]
