@@ -12,7 +12,7 @@ use esp_hal::{
     gpio::Level,
     gpio::{Input, InputConfig},
     gpio::{Output, OutputConfig},
-    main
+    main,
 };
 use esp_println::println;
 esp_bootloader_esp_idf::esp_app_desc!();
@@ -29,9 +29,7 @@ fn main() -> ! {
             led.set_high();
             println!("Button Pressed");
             delay.delay_millis(50);
-        
-        }
-        else {
+        } else {
             led.set_low();
         }
     }

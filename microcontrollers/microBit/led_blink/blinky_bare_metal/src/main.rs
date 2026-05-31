@@ -11,8 +11,8 @@ fn main() -> ! {
     const GPIO0_PINCNF21_ROW1_ADDR: *mut u32 = 0x5000_0754 as *mut u32;
     const GPIO0_PINCNF28_COL1_ADDR: *mut u32 = 0x5000_0770 as *mut u32;
 
-    const DIR_OUTPUT_POS : u32 = 0;
-    const PINCNF_DRIVE_LED : u32 = 1 << DIR_OUTPUT_POS;
+    const DIR_OUTPUT_POS: u32 = 0;
+    const PINCNF_DRIVE_LED: u32 = 1 << DIR_OUTPUT_POS;
 
     unsafe {
         write_volatile(GPIO0_PINCNF21_ROW1_ADDR, PINCNF_DRIVE_LED);
@@ -22,11 +22,10 @@ fn main() -> ! {
     const GPIO0_OUT_ADDR: *mut u32 = 0x5000_0504 as *mut u32;
     const GPIO0_OUT_ROW1_POS: u32 = 21;
 
-    let mut is_on:bool = false;
+    let mut is_on: bool = false;
 
-
-    loop{
-        unsafe{
+    loop {
+        unsafe {
             write_volatile(GPIO0_OUT_ADDR, (is_on as u32) << GPIO0_OUT_ROW1_POS);
         }
 

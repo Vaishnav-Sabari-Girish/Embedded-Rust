@@ -17,13 +17,10 @@ use {esp_backtrace as _, esp_println as _};
 use embedded_graphics::{
     mono_font::MonoTextStyle,
     prelude::*,
-    text::{
-        Baseline, 
-        Text
-    }
+    text::{Baseline, Text},
 };
 
-// Larger Font 
+// Larger Font
 use profont::PROFONT_24_POINT;
 
 // SPI Stuff
@@ -33,7 +30,12 @@ use esp_hal::spi::master::Config as SpiConfig;
 use esp_hal::spi::master::Spi;
 use esp_hal::spi::Mode as SpiMode;
 use esp_hal::time::Rate;
-use mipidsi::{Builder, models::ILI9341Rgb565, options::{Orientation, Rotation}, interface::SpiInterface};
+use mipidsi::{
+    interface::SpiInterface,
+    models::ILI9341Rgb565,
+    options::{Orientation, Rotation},
+    Builder,
+};
 
 // GPIO Stuff
 use esp_hal::gpio::{Level, Output, OutputConfig};
@@ -42,20 +44,19 @@ esp_bootloader_esp_idf::esp_app_desc!();
 
 #[main]
 fn main() -> ! {
-
     let config = esp_hal::Config::default().with_cpu_clock(CpuClock::max());
     let peripherals = esp_hal::init(config);
 
-    // Initialize spi 
+    // Initialize spi
     let spi = Spi::new(
         peripherals.SPI2,
         SpiConfig::default()
             .with_frequency(Rate::from_mhz(4))
-            .with_mode(SpiMode::_0)
+            .with_mode(SpiMode::_0),
     )
-        .unwrap()
-        .with_sck(peripherals.GPIO18)
-        .with_mosi(peripherals.GPIO23);
+    .unwrap()
+    .with_sck(peripherals.GPIO18)
+    .with_mosi(peripherals.GPIO23);
 
     let cs = Output::new(peripherals.GPIO5, Level::Low, OutputConfig::default());
     let dc = Output::new(peripherals.GPIO2, Level::Low, OutputConfig::default());
@@ -72,14 +73,15 @@ fn main() -> ! {
         .unwrap();
 
     display.clear(Rgb565::BLACK).unwrap();
-    display.set_orientation(Orientation::default().rotate(Rotation::Deg270)).unwrap();
+    display
+        .set_orientation(Orientation::default().rotate(Rotation::Deg270))
+        .unwrap();
 
     let text_style = MonoTextStyle::new(&PROFONT_24_POINT, Rgb565::GREEN);
 
     Text::with_baseline("Test TFT 2", Point::new(60, 80), text_style, Baseline::Top)
         .draw(&mut display)
         .unwrap();
-
 
     loop {
         info!("Hello world!");

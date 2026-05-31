@@ -8,10 +8,10 @@
 
 use esp_backtrace as _;
 use esp_hal::{
-    clock::CpuClock, 
-    delay::Delay, 
-    gpio::{Input, InputConfig, Level, Output, OutputConfig}, 
-    main, 
+    clock::CpuClock,
+    delay::Delay,
+    gpio::{Input, InputConfig, Level, Output, OutputConfig},
+    main,
 };
 use esp_println::println;
 esp_bootloader_esp_idf::esp_app_desc!();
@@ -23,7 +23,7 @@ fn main() -> ! {
 
     let echo_pin = Input::new(peripehrals.GPIO4, InputConfig::default());
     let mut trig_pin = Output::new(peripehrals.GPIO2, Level::Low, OutputConfig::default());
-    
+
     let delay = Delay::new();
 
     loop {

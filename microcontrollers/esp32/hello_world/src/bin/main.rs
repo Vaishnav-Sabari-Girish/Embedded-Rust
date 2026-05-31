@@ -2,14 +2,9 @@
 #![no_main]
 
 use esp_backtrace as _;
-use esp_hal::{
-    clock::CpuClock,
-    delay::Delay, 
-    main
-};
+use esp_hal::{clock::CpuClock, delay::Delay, main};
 use esp_println::println;
 esp_bootloader_esp_idf::esp_app_desc!();
-
 
 #[main]
 fn main() -> ! {

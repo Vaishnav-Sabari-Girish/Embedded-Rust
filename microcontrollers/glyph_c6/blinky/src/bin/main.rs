@@ -8,11 +8,11 @@
 
 use esp_backtrace as _;
 use esp_hal::{
-    peripherals::Peripherals,
     clock::CpuClock,
     delay::Delay,
     gpio::{Level, Output, OutputConfig},
-    main
+    main,
+    peripherals::Peripherals,
 };
 use esp_println::print;
 use esp_println::println;

@@ -1,10 +1,10 @@
 #![no_std]
 #![no_main]
 
-use panic_halt as _;
 use cortex_m_rt::entry;
 use embedded_hal::{delay::DelayNs, digital::OutputPin};
 use microbit::{board::Board, hal::timer::Timer};
+use panic_halt as _;
 
 #[entry]
 fn main() -> ! {
@@ -20,5 +20,5 @@ fn main() -> ! {
         timer.delay_ms(1_000);
         let _ = row1.set_high();
         timer.delay_ms(1_000);
-    }    
+    }
 }

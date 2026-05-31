@@ -9,16 +9,10 @@
 use esp_hal::{
     clock::CpuClock,
     ledc::{
-        channel,
-        channel::ChannelIFace,
-        timer::TimerIFace,
-        timer,
-        LSGlobalClkSource,
-        Ledc,
-        LowSpeed
+        channel, channel::ChannelIFace, timer, timer::TimerIFace, LSGlobalClkSource, Ledc, LowSpeed,
     },
+    main,
     time::Rate,
-    main
 };
 
 use log::info;
@@ -50,7 +44,7 @@ fn main() -> ! {
             clock_source: timer::LSClockSource::APBClk,
             frequency: Rate::from_khz(24),
         })
-    .unwrap();
+        .unwrap();
 
     let mut channel0 = ledc.channel(channel::Number::Channel0, led);
 
@@ -60,7 +54,7 @@ fn main() -> ! {
             duty_pct: 10,
             pin_config: channel::config::PinConfig::PushPull,
         })
-    .unwrap();
+        .unwrap();
 
     loop {
         channel0.start_duty_fade(0, 100, 1000).unwrap();
@@ -68,5 +62,4 @@ fn main() -> ! {
         channel0.start_duty_fade(100, 0, 1000).unwrap();
         while channel0.is_duty_fade_running() {}
     }
-
 }

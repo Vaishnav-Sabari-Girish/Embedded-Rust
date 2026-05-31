@@ -3,7 +3,7 @@
 
 use cortex_m::asm::nop;
 use cortex_m_rt::entry;
-use nrf52833_pac::{Peripherals, p0::pin_cnf::W as PinCnfW, p0::out::W as OutW};
+use nrf52833_pac::{Peripherals, p0::out::W as OutW, p0::pin_cnf::W as PinCnfW};
 use panic_halt as _;
 
 #[entry]

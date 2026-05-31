@@ -17,10 +17,7 @@ use {esp_backtrace as _, esp_println as _};
 use embedded_graphics::{
     mono_font::MonoTextStyle,
     prelude::*,
-    text::{
-        Baseline,
-        Text
-    }
+    text::{Baseline, Text},
 };
 
 // Larger font
@@ -39,7 +36,6 @@ use ili9341::{DisplaySize240x320, Ili9341, Orientation};
 // GPIO Stuff
 use esp_hal::gpio::{Level, Output, OutputConfig};
 
-
 esp_bootloader_esp_idf::esp_app_desc!();
 
 #[main]
@@ -54,11 +50,11 @@ fn main() -> ! {
         peripherals.SPI2,
         SpiConfig::default()
             .with_frequency(Rate::from_mhz(4))
-            .with_mode(SpiMode::_0)
+            .with_mode(SpiMode::_0),
     )
-        .unwrap()
-        .with_sck(peripherals.GPIO18)
-        .with_mosi(peripherals.GPIO23);
+    .unwrap()
+    .with_sck(peripherals.GPIO18)
+    .with_mosi(peripherals.GPIO23);
 
     let cs = Output::new(peripherals.GPIO15, Level::Low, OutputConfig::default());
     let dc = Output::new(peripherals.GPIO2, Level::Low, OutputConfig::default());
@@ -72,9 +68,9 @@ fn main() -> ! {
         reset,
         &mut Delay::new(),
         Orientation::Landscape,
-        DisplaySize240x320
+        DisplaySize240x320,
     )
-        .unwrap();
+    .unwrap();
 
     display.clear(Rgb565::WHITE).unwrap();
 
@@ -89,7 +85,6 @@ fn main() -> ! {
     Text::with_baseline("ESP32", Point::new(60, 180), text_style, Baseline::Top)
         .draw(&mut display)
         .unwrap();
-
 
     loop {
         info!("Hello world!");

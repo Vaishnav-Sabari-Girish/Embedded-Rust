@@ -8,9 +8,9 @@
 
 use esp_backtrace as _;
 use esp_hal::{
-    clock::CpuClock, 
-    delay::Delay, 
-    gpio::{Input, InputConfig}, 
+    clock::CpuClock,
+    delay::Delay,
+    gpio::{Input, InputConfig},
     main,
 };
 use esp_println::println;
@@ -25,7 +25,7 @@ mod colors {
 
 struct TouchSensor {
     is_pressed: bool,
-    was_pressed: bool
+    was_pressed: bool,
 }
 
 impl TouchSensor {
@@ -52,7 +52,6 @@ impl TouchSensor {
 
 #[main]
 fn main() -> ! {
-
     let config = esp_hal::Config::default().with_cpu_clock(CpuClock::max());
     let peripherals = esp_hal::init(config);
 
@@ -61,8 +60,9 @@ fn main() -> ! {
     let mut touch_sensor = TouchSensor::new();
 
     println!(
-        "{}Touch sensor initiated, waiting for touch...{}", 
-        colors::BG_CYAN, colors::RESET
+        "{}Touch sensor initiated, waiting for touch...{}",
+        colors::BG_CYAN,
+        colors::RESET
     );
 
     let delay = Delay::new();
@@ -74,8 +74,7 @@ fn main() -> ! {
 
         if touch_sensor.just_pressed() {
             println!("{}Touch Detected{}", colors::GREEN, colors::RESET);
-        }
-        else if touch_sensor.just_released() {
+        } else if touch_sensor.just_released() {
             println!("{}Touch released{}", colors::RED, colors::RESET);
         }
 

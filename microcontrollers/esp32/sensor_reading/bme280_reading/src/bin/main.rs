@@ -8,12 +8,10 @@
 
 use esp_backtrace as _;
 use esp_hal::{
-    i2c::master::{
-        I2c, Config
-    },
     clock::CpuClock,
     delay::Delay,
-    main
+    i2c::master::{Config, I2c},
+    main,
 };
 use esp_println::println;
 
@@ -22,7 +20,6 @@ esp_bootloader_esp_idf::esp_app_desc!();
 
 #[main]
 fn main() -> ! {
-
     let config = esp_hal::Config::default().with_cpu_clock(CpuClock::max());
     let peripherals = esp_hal::init(config);
 
@@ -48,5 +45,4 @@ fn main() -> ! {
 
         delay.delay_millis(1000);
     }
-
 }

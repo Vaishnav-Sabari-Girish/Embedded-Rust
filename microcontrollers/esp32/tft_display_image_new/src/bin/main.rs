@@ -28,18 +28,14 @@ use esp_hal::spi::master::Spi;
 use esp_hal::spi::Mode as SpiMode;
 use esp_hal::time::Rate;
 use mipidsi::{
-    Builder, 
-    models::ILI9342CRgb565, 
-    options::{
-        Orientation, 
-        Rotation
-    }, 
     interface::SpiInterface,
+    models::ILI9342CRgb565,
+    options::{Orientation, Rotation},
+    Builder,
 };
 
 // GPIO stuff
 use esp_hal::gpio::{Level, Output, OutputConfig};
-
 
 esp_bootloader_esp_idf::esp_app_desc!();
 
@@ -56,9 +52,9 @@ fn main() -> ! {
             .with_frequency(Rate::from_mhz(8))
             .with_mode(SpiMode::_0),
     )
-        .unwrap()
-        .with_sck(peripherals.GPIO18)
-        .with_mosi(peripherals.GPIO23);
+    .unwrap()
+    .with_sck(peripherals.GPIO18)
+    .with_mosi(peripherals.GPIO23);
 
     let cs = Output::new(peripherals.GPIO5, Level::Low, OutputConfig::default());
     let dc = Output::new(peripherals.GPIO2, Level::Low, OutputConfig::default());
@@ -74,11 +70,13 @@ fn main() -> ! {
         .unwrap();
 
     display.clear(Rgb565::BLACK).unwrap();
-    display.set_orientation(Orientation::default().rotate(Rotation::Deg270)).unwrap();
+    display
+        .set_orientation(Orientation::default().rotate(Rotation::Deg270))
+        .unwrap();
 
     let bmp_data = include_bytes!("../../image.bmp");
     let bmp = Bmp::from_slice(bmp_data).unwrap();
-    
+
     let image = Image::new(&bmp, Point::new(10, 0));
     image.draw(&mut display).unwrap();
 

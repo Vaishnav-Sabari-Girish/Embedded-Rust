@@ -1,13 +1,15 @@
 #![no_std]
 #![no_main]
 
+use cortex_m_rt::entry;
+use embedded_hal::{
+    delay::DelayNs,
+    digital::{InputPin, OutputPin},
+};
+use microbit::Board;
 use nrf52833_hal::Timer;
 use panic_halt as _;
-use embedded_hal::{delay::DelayNs, digital::{InputPin, OutputPin}};
-use cortex_m_rt::entry;
-use microbit::Board;
 use rtt_target::{rprintln, rtt_init_print};
-
 
 #[entry]
 fn main() -> ! {
@@ -23,23 +25,20 @@ fn main() -> ! {
     let mut led2 = board.display_pins.row2;
 
     let mut timer = Timer::new(board.TIMER0);
-    
+
     rprintln!("Button Press Check");
-    loop{
-    
-        if let Ok(true) =  btn_a.is_low(){
+    loop {
+        if let Ok(true) = btn_a.is_low() {
             rprintln!("Button A is pressed");
             let _ = led1.set_high();
             let _ = led2.set_low();
             timer.delay_ms(10);
-        }
-        else if let Ok(true) = btn_b.is_low() {
+        } else if let Ok(true) = btn_b.is_low() {
             rprintln!("Button B is pressed");
             let _ = led1.set_low();
             let _ = led2.set_high();
             timer.delay_ms(10);
-        }
-        else{
+        } else {
             rprintln!("No buttons pressed");
             let _ = led1.set_low();
             let _ = led2.set_low();

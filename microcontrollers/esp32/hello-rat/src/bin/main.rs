@@ -6,28 +6,21 @@
     holding buffers for the duration of a data transfer."
 )]
 
-use static_cell::StaticCell;
 use embedded_hal_bus::spi::ExclusiveDevice;
 use esp_backtrace as _;
+use static_cell::StaticCell;
 
 // ESP Stuff
 use esp_hal::{
+    clock::CpuClock,
     delay::Delay,
+    gpio::{Level, Output, OutputConfig},
+    main,
     spi::{
-        master::{
-            Config as SpiConfig,
-            Spi
-        },
         Mode as SpiMode,
+        master::{Config as SpiConfig, Spi},
     },
     time::Rate,
-    gpio::{
-        Level,
-        Output,
-        OutputConfig
-    },
-    clock::CpuClock,
-    main
 };
 
 // Embedded graphics stuff
@@ -35,12 +28,20 @@ use embedded_graphics::pixelcolor::Rgb565;
 use embedded_graphics::prelude::*;
 
 // TFT Screen stuff
-use mipidsi::{Builder, models::ILI9342CRgb565, interface::SpiInterface, options::{Orientation, Rotation}};
+use mipidsi::{
+    Builder,
+    interface::SpiInterface,
+    models::ILI9342CRgb565,
+    options::{Orientation, Rotation},
+};
 
 // Mousefood stuff
 use mousefood::{EmbeddedBackend, EmbeddedBackendConfig};
-use ratatui::{layout::{Constraint, Flex, Layout}, widgets::{Block, Paragraph, Wrap}};
-use ratatui::{style::*, Frame, Terminal};
+use ratatui::{Frame, Terminal, style::*};
+use ratatui::{
+    layout::{Constraint, Flex, Layout},
+    widgets::{Block, Paragraph, Wrap},
+};
 
 extern crate alloc;
 esp_bootloader_esp_idf::esp_app_desc!();
@@ -60,11 +61,11 @@ fn main() -> ! {
         peripherals.SPI2,
         SpiConfig::default()
             .with_frequency(Rate::from_mhz(60))
-            .with_mode(SpiMode::_0)
+            .with_mode(SpiMode::_0),
     )
-        .unwrap()
-        .with_sck(peripherals.GPIO18)
-        .with_mosi(peripherals.GPIO23);
+    .unwrap()
+    .with_sck(peripherals.GPIO18)
+    .with_mosi(peripherals.GPIO23);
 
     let cs = Output::new(peripherals.GPIO5, Level::Low, OutputConfig::default());
     let dc = Output::new(peripherals.GPIO2, Level::Low, OutputConfig::default());
@@ -75,19 +76,16 @@ fn main() -> ! {
     let spi_dev = ExclusiveDevice::new_no_delay(spi, cs).unwrap();
     let interface = SpiInterface::new(spi_dev, dc, buffer);
 
-    let mut display = Builder::new(
-        ILI9342CRgb565,
-        interface
-    )
+    let mut display = Builder::new(ILI9342CRgb565, interface)
         .reset_pin(reset)
         .init(&mut Delay::new())
         .unwrap();
 
     // CRITICAL: Set orientation BEFORE clearing and creating backend
-    display.set_orientation(
-        Orientation::default().rotate(Rotation::Deg270)
-    ).unwrap();
-    
+    display
+        .set_orientation(Orientation::default().rotate(Rotation::Deg270))
+        .unwrap();
+
     // Clear with the new orientation
     display.clear(Rgb565::BLACK).unwrap();
 
@@ -125,5 +123,4 @@ fn draw(frame: &mut Frame) {
         .title("RataTUI");
 
     frame.render_widget(paragraph.block(bordered_block), horizontal_layout[0]);
-
 }

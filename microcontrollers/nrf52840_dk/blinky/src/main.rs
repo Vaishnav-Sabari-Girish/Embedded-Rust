@@ -22,7 +22,7 @@ async fn main(_spawner: Spawner) {
     loop {
         info!("LED ON");
         led.set_low();
-        
+
         Timer::after(Duration::from_millis(500)).await;
 
         info!("LED OFF");
