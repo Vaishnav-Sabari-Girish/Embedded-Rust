@@ -7,8 +7,8 @@ use defmt_rtt as _; // Initializes the global defmt logger
 use panic_probe as _; // Catches panics and sends them through defmt
 
 use embassy_executor::Spawner;
-use embassy_time::{Duration, Timer};
 use embassy_nrf::pwm::{DutyCycle, Prescaler, SimpleConfig, SimplePwm};
+use embassy_time::{Duration, Timer};
 
 #[embassy_executor::main]
 async fn main(_spawner: Spawner) {
@@ -45,7 +45,7 @@ async fn main(_spawner: Spawner) {
         }
 
         info!("Fading out");
-            
+
         for duty in fade_range.into_iter().rev() {
             // Invert the duty value so that 0 is OFF and 1000 is fully ON
             let dc = DutyCycle::inverted(duty);

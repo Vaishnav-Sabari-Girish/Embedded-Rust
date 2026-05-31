@@ -6,8 +6,8 @@ use defmt_rtt as _; // Initializes the global defmt logger
 use panic_probe as _; // Catches panics and sends them through defmt
 
 use embassy_executor::Spawner;
-use embassy_nrf::gpio::{AnyPin, Input, Level, Output, OutputDrive, Pull};
 use embassy_nrf::Peri;
+use embassy_nrf::gpio::{AnyPin, Input, Level, Output, OutputDrive, Pull};
 
 // pool_size = 4 tells Embassy to reserve enough memory
 // to run up to 4 instances of this specific task concurrently

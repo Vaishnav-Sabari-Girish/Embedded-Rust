@@ -7,19 +7,19 @@ use defmt_rtt as _; // Initializes the global defmt logger
 use panic_probe as _; // Catches panics and sends them through defmt
 
 use embassy_executor::Spawner;
-use embassy_time::{Duration, Timer};
 use embassy_nrf::{bind_interrupts, peripherals, temp, twim};
+use embassy_time::{Duration, Timer};
 
-// UI 
+// UI
 use embedded_graphics::{
-    mono_font::{ascii::FONT_6X10, MonoTextStyleBuilder},
+    mono_font::{MonoTextStyleBuilder, ascii::FONT_6X10},
     pixelcolor::BinaryColor,
     prelude::*,
     text::{Baseline, Text},
 };
 
 use heapless::String;
-use sh1106::{prelude::*, Builder};
+use sh1106::{Builder, prelude::*};
 
 bind_interrupts!(struct Irqs {
     TWISPI0 => twim::InterruptHandler<peripherals::TWISPI0>;
@@ -42,11 +42,12 @@ async fn main(_spawner: Spawner) {
     let mut twim_tx_buffer = [0u8; 128];
 
     let i2c = twim::Twim::new(
-        p.TWISPI0, 
-        Irqs, p.P0_26, 
-        p.P0_27, 
-        twim_config, 
-        &mut twim_tx_buffer
+        p.TWISPI0,
+        Irqs,
+        p.P0_26,
+        p.P0_27,
+        twim_config,
+        &mut twim_tx_buffer,
     );
 
     let mut display: GraphicsMode<_> = Builder::new().connect_i2c(i2c).into();
@@ -72,7 +73,10 @@ async fn main(_spawner: Spawner) {
 
         display.clear();
 
-        unwrap!(Text::with_baseline(&s, Point::new(0, 16), text_style, Baseline::Top).draw(&mut display));
+        unwrap!(
+            Text::with_baseline(&s, Point::new(0, 16), text_style, Baseline::Top)
+                .draw(&mut display)
+        );
         display.flush().unwrap();
 
         Timer::after(Duration::from_secs(1)).await;
