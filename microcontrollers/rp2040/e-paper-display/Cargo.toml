@@ -1,5 +1,5 @@
 [package]
-name = "e-paper-display"
+name = "rp2040_e_paper_display"
 version = "0.1.0"
 edition = "2024"
 
@@ -17,6 +17,7 @@ rp2040-hal = { version = "0.12.0", features = ["critical-section-impl"] }
 
 [[bin]]
 name = "e-paper-display"
+path = "src/main.rs"
 test = false
 bench = false
 doctest = false

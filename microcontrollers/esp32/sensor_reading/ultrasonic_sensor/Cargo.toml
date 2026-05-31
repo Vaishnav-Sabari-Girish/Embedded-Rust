@@ -1,6 +1,6 @@
 [package]
 edition = "2021"
-name    = "ultrasonic_sensor"
+name = "esp32_ultrasonic_sensor"
 version = "0.1.0"
 
 [[bin]]

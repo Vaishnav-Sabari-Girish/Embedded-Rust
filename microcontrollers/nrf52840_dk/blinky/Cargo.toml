@@ -1,5 +1,5 @@
 [package]
-name = "blinky"
+name = "nrf52840_dk_blinky"
 version = "0.1.0"
 edition = "2024"
 

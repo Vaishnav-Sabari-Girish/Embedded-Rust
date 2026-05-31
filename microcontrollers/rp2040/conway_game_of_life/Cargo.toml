@@ -1,5 +1,5 @@
 [package]
-name = "conway_game_of_life"
+name = "rp2040_conway_game_of_life"
 version = "0.1.0"
 edition = "2024"
 
@@ -17,6 +17,7 @@ rp2040-hal = { version = "0.12.0", features = ["critical-section-impl"] }
 
 [[bin]]
 name = "conway_game_of_life"
+path = "src/main.rs"
 test = false
 bench = false
 doctest = false

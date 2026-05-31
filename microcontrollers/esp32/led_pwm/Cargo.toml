@@ -1,6 +1,6 @@
 [package]
 edition = "2021"
-name    = "led_pwm"
+name = "esp32_led_pwm"
 version = "0.1.0"
 
 [[bin]]

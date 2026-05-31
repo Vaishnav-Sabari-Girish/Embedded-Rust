@@ -1,5 +1,5 @@
 [package]
-name = "e-paper-big-text"
+name = "rp2040_e_paper_big_text"
 version = "0.1.0"
 edition = "2024"
 
@@ -22,6 +22,7 @@ tui-big-text = "0.8.2"
 
 [[bin]]
 name = "e-paper-big-text"
+path = "src/main.rs"
 test = false
 bench = false
 doctest = false

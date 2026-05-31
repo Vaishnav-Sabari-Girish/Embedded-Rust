@@ -1,6 +1,6 @@
 [package]
 edition = "2021"
-name    = "tft_display_image_new"
+name = "esp32_tft_display_image_new"
 version = "0.1.0"
 
 [[bin]]

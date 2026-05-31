@@ -1,6 +1,6 @@
 [package]
 edition      = "2024"
-name         = "hello-rat"
+name = "esp32_hello_rat"
 rust-version = "1.88"
 version      = "0.1.0"
 

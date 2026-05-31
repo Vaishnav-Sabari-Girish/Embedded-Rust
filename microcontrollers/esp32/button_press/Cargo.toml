@@ -1,6 +1,6 @@
 [package]
 edition = "2021"
-name    = "button_press"
+name = "esp32_button_press"
 version = "0.1.0"
 
 [[bin]]

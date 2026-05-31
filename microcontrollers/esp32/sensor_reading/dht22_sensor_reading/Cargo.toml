@@ -1,6 +1,6 @@
 [package]
 edition = "2021"
-name    = "dht22_sensor_reading"
+name = "esp32_dht22_sensor_reading"
 version = "0.1.0"
 
 [[bin]]

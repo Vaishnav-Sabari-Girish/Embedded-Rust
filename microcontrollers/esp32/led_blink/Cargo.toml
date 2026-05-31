@@ -1,6 +1,6 @@
 [package]
 edition = "2021"
-name    = "led_blink"
+name = "esp32_led_blink"
 version = "0.1.0"
 
 [[bin]]

@@ -1,5 +1,5 @@
 [package]
-name = "blinky_bsp"
+name = "microbit_blinky_bsp"
 version = "0.1.0"
 edition = "2024"
 

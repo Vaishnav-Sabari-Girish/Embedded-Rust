@@ -1,6 +1,6 @@
 [package]
 edition = "2021"
-name    = "blinky"
+name = "glyph_c6_blinky"
 version = "0.1.0"
 
 [[bin]]

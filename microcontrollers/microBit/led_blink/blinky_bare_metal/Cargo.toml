@@ -1,5 +1,5 @@
 [package]
-name = "blinky_bare_metal"
+name = "microbit_blinky_bare_metal"
 version = "0.1.0"
 edition = "2024"
 

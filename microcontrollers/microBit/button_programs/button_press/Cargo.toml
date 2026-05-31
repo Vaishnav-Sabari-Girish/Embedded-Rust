@@ -1,5 +1,5 @@
 [package]
-name = "button_press"
+name = "microbit_button_press"
 version = "0.1.0"
 edition = "2024"
 

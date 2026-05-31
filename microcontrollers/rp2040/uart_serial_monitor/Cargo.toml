@@ -1,5 +1,5 @@
 [package]
-name = "uart_serial_monitor"
+name = "rp2040_uart_serial_monitor"
 version = "0.1.0"
 edition = "2024"
 
