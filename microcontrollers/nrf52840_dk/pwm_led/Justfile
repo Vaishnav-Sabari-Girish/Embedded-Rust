@@ -1,0 +1,15 @@
+run:
+    @cargo run
+
+build:
+    @cargo build --release
+
+sz:
+    @./build-size.sh .
+
+# A handy alias to build for release, check size, and run
+f: sz
+    @cargo run
+
+clean:
+    @cargo clean
