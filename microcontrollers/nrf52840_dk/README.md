@@ -11,3 +11,4 @@ List of Embedded rust programs on the nrf52840-DK microcontroller (Mainly using 
 5. [OLED](./oled_display/src/main.rs)
 6. [OLED (`ratatui`)](./oled_ratatui/src/main.rs)
 7. [E-Paper Display (Basic Text)](./e-paper-basic/src/main.rs)
+8. [E-Paper Display (`ratatui`)](./e-paper-ratatui/src/main.rs)
