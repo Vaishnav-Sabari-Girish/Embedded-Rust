@@ -6,3 +6,4 @@
 3. [Glyph C6](./microcontrollers/glyph_c6/glyphc6.md)
 4. [RP2040](./microcontrollers/rp2040/README.md)
 4. [nrf52840-dk](./microcontrollers/nrf52840_dk/README.md)
+5. [STM32 Nucleo L433RC-P](./microcontrollers/stm32_nucleo_l433rc-p/stm32_nucleo_l433rc-p.md)
